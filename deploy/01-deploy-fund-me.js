@@ -7,11 +7,9 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deployer } = await getNamedAccounts();
     const chainId = network.config.chainId;
 
-    // Debugging: Check chainId and networkConfig
     log("Network Chain ID:", chainId);
     log("Network Config for Chain ID:", networkConfig[chainId]);
 
-    // Fetch ethUsdPriceFeedAddress
     let ethUsdPriceFeedAddress;
     if (developmentChains.includes(network.name)) {
         const ethUsdAggregator = await deployments.get("MockV3Aggregator");
@@ -19,7 +17,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     } else {
         ethUsdPriceFeedAddress = networkConfig[chainId]?.ethUsdPriceFeed;
 
-        // Error handling
         if (!ethUsdPriceFeedAddress) {
             throw new Error(`ethUsdPriceFeed is undefined for chainId: ${chainId}`);
         }

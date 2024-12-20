@@ -11,7 +11,7 @@
     "@typechain/ethers-v6": "^0.5.0",
     "@typechain/hardhat": "^9.0.0",
     "chai": "^4.2.0",
-    "ethers": "^6.13.4",
+    "ethers": "^6.6.2",
     "hardhat": "^2.22.17",
     "hardhat-deploy": "^0.14.0",
     "hardhat-deploy-ethers": "^0.4.2",
